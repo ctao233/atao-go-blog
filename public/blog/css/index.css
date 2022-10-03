@@ -1,0 +1,35 @@
+.left-container{
+	margin: 35px 0;
+}
+.left-container div div div img{
+	display: inline-block;
+	width: 110px;
+	height: 110px;
+	border-radius: 70px;
+}
+
+.left-container div div div div{
+	text-align: center;
+	font-weight: 500;
+	font-size: 1.1rem;
+	margin: 10px auto;
+}
+
+/* 回到顶部 */
+.elevator-item{
+	position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 999999;
+}
+.elevator-item .elevator {
+    width: 40px;
+    height: 36px;
+    display: inline-block;
+	color: #fff;
+    background-color: rgba(0, 0, 0, .6);
+    border-radius: 4px;
+    margin-bottom: 4px;
+	text-align: center;
+    display: none;
+}

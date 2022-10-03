@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>{{.Data.Title}}</title>
+	<meta name="keywords" content="At_blog,博客">
+	<meta name="description" content="自用的博客网站">
+	  <meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="blog/js/layui/css/layui.css" rel="stylesheet">
+	 <link href="blog/css/common.css" rel="stylesheet"/>
+	 <link href="blog/css/blog.css" rel="stylesheet">
+	</head>
+	
+<body class="site-home" id="LAY_home" >
+	
+	
+<!-- 头部	 -->
+{{template "header" .}}
+
+
+<!-- 中间画布 -->
+<div class="site-banner" style="background:url( https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp09%2F210Q6133S9A22-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1664546680&t=2f3e57bd908f1d26a8aeca37169b9245) no-repeat;  background-size:100% 100%;">
+  <div class="site-banner-bg">
+  </div>
+  <div class="site-banner-main">
+    <div class="site-zfj layui-anim layui-anim-scaleSpring" >
+      <i class="layui-icon" style="color: #fff; color: rgba(255,255,255,.6);">&#xe609;</i>
+    </div>
+    <div class="layui-anim site-desc">
+      <p class="web-font-desc">{{.Data.Title}}</p>
+    </div>
+	<div class="site-version">
+		<div class="layui-row">
+			<span>
+				<i class="layui-icon layui-icon-date" style="font-size: 10px;">发表于 {{DateDay .Data.UpLoadTime}}</i>
+			</span>
+			<span><i class="layui-icon layui-icon-refresh" style="font-size: 10px;">更新于 {{DateDay .Data.UpdateTime}}</i></span>
+		</div>
+		<div class="layui-row">
+			<span><i class="layui-icon layui-icon-file-b" style="font-size: 10px;">
+			字数统计: {{StrCount .Data.Content}}</i></span>
+			<span><i class="layui-icon layui-icon-read" style="font-size: 10px;">
+			阅读量: {{.Data.View}}</i></span>
+			<span><i class="layui-icon layui-icon-reply-fill" style="font-size: 10px;">
+			</i>评论数: 10</span>
+			<span><i class="layui-icon layui-icon-component" style="font-size: 10px;">
+			</i><a href="/detailTag?tag={{.Data.Catalog}}" rel="nofollow" target="_blank">
+			{{.Data.Catalog}}</a></span>
+		</div>
+	</div>
+  </div>
+</div>
+
+<div class="layui-container">  
+
+  <div class="layui-row layui-col-space15" >
+	 <div class="left-container layui-row layui-col-md3 ">
+		 
+		 <div id="articleDirectories" class="layui-tab layui-tab-card">
+		   <ul class="layui-tab-title">
+		     <li class="layui-this">目录</li>
+		     <li>网站概述</li>
+		   </ul>
+		   <div class="layui-tab-content" >
+		     <div class="layui-tab-item layui-show">
+				<ul id="mlItem" class="layui-menu" >
+
+				
+				</ul>
+				
+			 </div>
+		     <div class="layui-tab-item">
+
+			   <div class="layui-row">
+				   <div style="padding: 20px;">
+					   <div class="layui-row">  
+							<img src="{{.Avatar}}"/>
+					   </div>
+						<div class="layui-row">{{.Name}}</div>
+						<div class="layui-row" style="font-size: 14px;">{{.Sentenc}}</div>
+						
+					<div class="layui-row">
+						<div class="layui-col-md4">文章
+							<div class="layui-row">
+                                {{.BlogCount}}
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<a  href="JavaScript:showDialog('#hidcatalog');"  rel="nofollow" >
+							  分类 
+							<div class="layui-row">
+                                {{.CategoryCount}}
+							</div></a>
+						</div>
+						<div class="layui-col-md4">
+							<a  href="JavaScript:showDialog('#hidTag');">标签
+								<div class="layui-row">{{.TagCount}}</div>
+							</a>
+						</div>
+					</div>
+				   </div>
+			   </div>
+			 </div>
+		   </div>
+		 </div>
+		 
+		  
+	  </div>
+	  
+	  <div class="left-container layui-row layui-col-md9 ">
+	  	  <article id="post">
+	  		  <div id="article-container">
+				{{MdSweapHtml .Data.Content}}
+	  		   </div>
+	  	  </article>
+	  	 <div class="layui-row">
+
+
+	    </div>
+	  
+  </div>
+
+
+{{template "foot" .}}
+</body>
+
+{{template "hidDalog" .}}
+
+<script id ="HItem" type="text/html">
+	<%#  layui.each(d, function(index, item){ %>
+		<li lay-options="{id: '<%item.tagename%><%index%>' }">
+			<div class="layui-menu-body-title">
+				<%item.tagename%> <%item.title%>
+			</div>
+		</li>
+	<%#  });%>
+</script>
+
+<script src="blog/js/layui/layui.js"></script>
+<script src="blog/js/MyFunc.js"></script>
+<script src="blog/js/blog.js"></script>
+<script src="blog/js/layui/modules/layer.js"></script>
+
+
+
+<script>
+//注意：导航 依赖 element 模块，否则无法进行功能性操作
+layui.use(['laypage','element','dropdown',"jquery",'laytpl','axios'], function(){
+  var element = layui.element,
+  $ = layui.$,	
+  axios= layui.axios,
+  laytpl = layui.laytpl,
+	// 目录控件
+	dropdown = layui.dropdown;
+
+	// 模板插件
+	laytpl= layui.laytpl;
+	laytpl.config({
+		open: '<%',
+		close: '%>'
+	});
+
+	dropdown.on('click(mlItem)', function(options){
+
+		document.getElementById(options.id).scrollIntoView({ behavior:'smooth' });
+	});
+
+   	var item = [];
+	//查找h1-h6
+	$("#article-container :header").each(function (index) {
+		var title = $(this).html()
+		var tagName = $(this).prop("tagName")
+		item.push({"tagename":tagName,"title":title})
+		$(this).prop("id", tagName + index)
+	});
+
+	var getTpl = HItem.innerHTML
+	,view = document.getElementById('mlItem');
+	laytpl(getTpl).render(item, function(html){
+	view.innerHTML = html;
+	});
+
+}
+);1
+</script>
+</html>

@@ -1,0 +1,384 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin: 1rem 0 0.7rem !important;
+  color: #344c67;
+  font-weight: bold;
+}
+
+#post{
+	padding: 50px 40px;
+/* 	border-radius: 8px; */
+	background: #fff;
+	-webkit-box-shadow: 0 4px 8px 6px rgb(7 17 27 / 6%);
+	box-shadow: 0 4px 8px 6px rgb(7 17 27 / 6%);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+#article-container{
+	
+}
+
+#article-container pre,
+#article-container figure.highlight {
+  overflow: auto;
+  margin: 0 0 1rem;
+  padding: 0;
+  background: #f6f8fa;
+  color: #90a4ae;
+  line-height: 20px;
+  counter-reset: line;
+  white-space: pre-wrap;
+}
+.code-area-wrap {
+  position: relative;
+  margin: 0 0 1rem;
+}
+figure.highlight {
+  position: relative;
+}
+blockquote {
+  margin: 0 0 1rem;
+  padding: 0.1rem 0.8rem;
+  border-left: 0.2rem solid #49b1f5;
+  background-color: rgba(73,177,245,0.1);
+  color: #6a737d;
+}
+blockquote a {
+  word-break: break-all;
+}
+blockquote p {
+  margin: 0 !important;
+  padding: 0.5rem 0;
+}
+blockquote footer {
+  padding: 0 0 0.5rem;
+}
+blockquote footer cite:before {
+  padding: 0 0.3em;
+  content: '—';
+}
+#article-container pre,
+#article-container code {
+  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number !important;
+}
+#article-container code {
+  padding: 0.1rem 0.2rem;
+  background: rgba(27,31,35,0.05);
+  color: #f47466;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+#article-container pre {
+  padding: 10px 20px;
+}
+#article-container pre code {
+  padding: 0;
+  background: none;
+  color: #90a4ae;
+  text-shadow: none;
+}
+#article-container figure.highlight {
+  position: relative;
+  border-radius: 1px;
+}
+#article-container figure.highlight pre {
+  margin: 0;
+  padding: 8px 0;
+  border: none;
+}
+#article-container figure.highlight .line::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container figure.highlight .line:before {
+  display: inline-block;
+  padding: 0 0.3rem 0 0;
+  min-width: 1.6rem;
+  color: #cfd8dc;
+  content: counter(line);
+  counter-increment: line;
+  text-align: left;
+}
+#article-container figure.highlight .line.marked {
+  background-color: rgba(128,203,196,0.251);
+}
+#article-container figure.highlight table {
+  position: relative;
+  display: table;
+  margin: 0;
+  width: auto;
+  border: none;
+}
+#article-container figure.highlight td {
+  padding: 0;
+  border: none;
+}
+#article-container figure.highlight figcaption {
+  zoom: 1;
+  padding: 0.3rem 0 0.1rem 0.7rem;
+  color: #90a4ae;
+  font-size: 1em;
+  line-height: 1em;
+}
+#article-container figure.highlight figcaption:before,
+#article-container figure.highlight figcaption:after {
+  content: "";
+  display: table;
+}
+#article-container figure.highlight figcaption:after {
+  clear: both;
+}
+#article-container figure.highlight figcaption a {
+  float: right;
+  padding-right: 10px;
+  color: #90a4ae;
+}
+#article-container figure.highlight figcaption a:hover {
+  border-bottom-color: #90a4ae;
+}
+#article-container figure.highlight .gutter pre {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  background-color: #f6f8fa;
+  color: #cfd8dc;
+  text-align: right;
+}
+#article-container figure.highlight .code pre {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  width: 100%;
+  background-color: #f6f8fa;
+}
+#article-container figure.highlight .line {
+  height: 1rem;
+}
+#article-container .gutter {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+#article-container .gist table {
+  width: auto;
+}
+#article-container .gist table td {
+  border: none;
+}
+#article-container pre .deletion {
+  background: #fdd;
+}
+#article-container pre .addition {
+  background: #dfd;
+}
+#article-container pre .meta {
+  color: #7c4dff;
+}
+#article-container pre .comment {
+  color: rgba(144,164,174,0.565);
+}
+#article-container pre .comment::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .variable,
+#article-container pre .attribute,
+#article-container pre .regexp,
+#article-container pre .ruby .constant,
+#article-container pre .xml .tag .title,
+#article-container pre .xml .pi,
+#article-container pre .xml .doctype,
+#article-container pre .html .doctype,
+#article-container pre .css .id,
+#article-container pre .tag .name,
+#article-container pre .css .class,
+#article-container pre .css .pseudo {
+  color: #e53935;
+}
+#article-container pre .variable::selection,
+#article-container pre .attribute::selection,
+#article-container pre .regexp::selection,
+#article-container pre .ruby .constant::selection,
+#article-container pre .xml .tag .title::selection,
+#article-container pre .xml .pi::selection,
+#article-container pre .xml .doctype::selection,
+#article-container pre .html .doctype::selection,
+#article-container pre .css .id::selection,
+#article-container pre .tag .name::selection,
+#article-container pre .css .class::selection,
+#article-container pre .css .pseudo::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .tag {
+  color: #39adb5;
+}
+
+/* 图片 */
+#article-container img {
+  margin: 0 auto 0.8rem;
+  width: 100%;
+}
+
+#article-container pre .tag::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .number,
+#article-container pre .preprocessor,
+#article-container pre .literal,
+#article-container pre .params,
+#article-container pre .constant,
+#article-container pre .command {
+  color: #f76d47;
+}
+#article-container pre .number::selection,
+#article-container pre .preprocessor::selection,
+#article-container pre .literal::selection,
+#article-container pre .params::selection,
+#article-container pre .constant::selection,
+#article-container pre .command::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .built_in {
+  color: #ffb62c;
+}
+#article-container pre .built_in::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .ruby .class .title,
+#article-container pre .css .rules .attribute,
+#article-container pre .string,
+#article-container pre .value,
+#article-container pre .inheritance,
+#article-container pre .header,
+#article-container pre .ruby .symbol,
+#article-container pre .xml .cdata,
+#article-container pre .special,
+#article-container pre .number,
+#article-container pre .formula {
+  color: #91b859;
+}
+#article-container pre .ruby .class .title::selection,
+#article-container pre .css .rules .attribute::selection,
+#article-container pre .string::selection,
+#article-container pre .value::selection,
+#article-container pre .inheritance::selection,
+#article-container pre .header::selection,
+#article-container pre .ruby .symbol::selection,
+#article-container pre .xml .cdata::selection,
+#article-container pre .special::selection,
+#article-container pre .number::selection,
+#article-container pre .formula::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .keyword,
+#article-container pre .title,
+#article-container pre .css .hexcolor {
+  color: #39adb5;
+}
+#article-container pre .keyword::selection,
+#article-container pre .title::selection,
+#article-container pre .css .hexcolor::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .function,
+#article-container pre .python .decorator,
+#article-container pre .python .title,
+#article-container pre .ruby .function .title,
+#article-container pre .ruby .title .keyword,
+#article-container pre .perl .sub,
+#article-container pre .javascript .title,
+#article-container pre .coffeescript .title {
+  color: #6182b8;
+}
+#article-container pre .function::selection,
+#article-container pre .python .decorator::selection,
+#article-container pre .python .title::selection,
+#article-container pre .ruby .function .title::selection,
+#article-container pre .ruby .title .keyword::selection,
+#article-container pre .perl .sub::selection,
+#article-container pre .javascript .title::selection,
+#article-container pre .coffeescript .title::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+#article-container pre .tag .attr,
+#article-container pre .javascript .function {
+  color: #7c4dff;
+}
+#article-container pre .tag .attr::selection,
+#article-container pre .javascript .function::selection {
+  background: rgba(128,203,196,0.251);
+  color: #90a4ae;
+}
+
+#article-container ol,
+#article-container ul {
+  margin-top: 0.4rem;
+  counter-reset: li;
+}
+#article-container ol p,
+#article-container ul p {
+  margin: 0 0 0.5rem;
+}
+#article-container ol ol,
+#article-container ul ol,
+#article-container ol ul,
+#article-container ul ul {
+  padding-left: 0.5rem;
+}
+#article-container ol li,
+#article-container ul li {
+  position: relative;
+  /* margin: 0.3rem 0; */
+  /* padding-left: 0.3rem; */
+}
+
+/* 表格 */
+
+#article-container table {
+  display: block;
+  overflow: auto;
+  margin: 0 0 1rem;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+#article-container table thead {
+  background: rgba(153,169,191,0.1);
+}
+#article-container table th,
+#article-container table td {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #d6d6d6;
+  vertical-align: middle;
+}
+
+#article-container p {
+  margin: 0 0 0.8rem;
+}
+
+.fix-articleDirectories{	
+	position:fixed;
+	top:80px;
+	_position:absolute;	
+	z-index:100;
+}

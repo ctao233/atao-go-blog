@@ -1,0 +1,142 @@
+{{define "right"}}
+<div class="left-container layui-row layui-col-md3 ">
+    <div class="layui-panel " style="margin: 0 ;">
+        <div class="layui-row">
+            <div style="padding: 20px;">
+                <div class="layui-row">  
+                     <img src="{{.Avatar}}"/>
+                </div>
+                 <div class="layui-row">{{.Name}}</div>
+                 <div class="layui-row" style="font-size: 14px;">{{.Sentenc}}</div>
+
+					<div class="layui-row">
+						<div class="layui-col-md4">文章
+							<div class="layui-row">
+                                {{.BlogCount}}
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<a  href="JavaScript:showDialog('#hidcatalog');"  rel="nofollow" >
+							  分类 
+							<div class="layui-row">
+                                {{.CategoryCount}}
+							</div></a>
+						</div>
+						<div class="layui-col-md4">
+							<a  href="JavaScript:showDialog('#hidTag');">标签
+								<div class="layui-row">{{.TagCount}}</div>
+							</a>
+						</div>
+					</div>
+            </div>
+        </div>
+    </div>   
+    <div class="layui-panel " style="margin-top: 0.625rem;">
+		<div class="layui-card">
+			<div class="layui-card-header">	
+			<i class="layui-icon layui-icon-speaker" style="font-size: 20px; color: #1E9FFF;">公告</i></div>
+			<div class="layui-card-body">
+			   <p>感谢访问本站，本站还在建设中！ ^_^ ^_^</p>
+			</div>
+		  </div>
+    </div>
+    <div class="layui-panel " style="margin-top: 0.625rem;">
+		<div class="layui-card">
+			<div class="layui-card-header">
+				<i class="layui-icon layui-icon-fire" style="font-size: 20px; color: #1E9FFF;">阅读量排行</i>
+			  </div>
+		  </div>
+
+		  {{range $index,$elem :=.Data}}
+		  <div class="layui-card" >
+			<div class="layui-card-body">
+				<div class="layui-row">
+					<div class="layui-col-md4">
+					   <img src="{{$elem.Photo}}" style="width:100%;height:100%; border-radius: 0px;"/>
+					</div>
+					<div class="layui-col-md8">
+					  <a href="blog?id={{$elem.Id}}">
+					  <div style="margin: auto;">{{$elem.Title}}</div>	
+					  </a>		  
+						<time style="font-size: 10px;">{{DateDay $elem.CreateDate}}</time>				  
+					</div>
+				</div> 
+			</div>
+		  </div>
+		  {{end}}
+    </div>    
+</div>
+
+{{end}}
+
+
+
+<!-- 中间博客数据显示条目显示控件 -->
+{{define "blogItem"}}
+<!-- <script src="blog/js/axios-0.18.0.js"></script> -->
+<script id ="blogItem" type="text/html">
+	<%#  layui.each(d.result, function(index, item){ %>
+	<div>
+	 <li class="layui-row" >
+	
+		<div class="layui-col-md4 layui-anim layui-anim-scaleSpring" style="margin-top: 15px;">
+			<a href="blog?id=<%item.id%>" title="<%item.title%>">
+				<img src="<%item.photo%>" width="100%" height="100%"/>
+			</a>
+		</div>
+		<div class="layui-col-md8" >
+		
+				 <fieldset class="layui-elem-field layui-field-title">
+						<legend onclick="javascript:window.location.href='blog?id=<%item.id%>'" class="web-font-desc"><%item.title%></legend>
+					<div class="layui-field-box">
+					    <p><%item.content%></p>
+					</div>
+				 </fieldset>
+				<time class="post-meta__date">
+                    <i class="layui-icon layui-icon-date" style="font-size: 10px;" ></i> <% blogformData(item.upLoadTime)%> 
+				 </time>
+				<span class="article-meta"><span class="article-meta__separator">|</span>
+                <i class="layui-icon layui-icon-component" style="font-size: 10px;"></i>
+					<a class="article-meta__categories" href="/detailCategory?category=<%item.catalog%>"><%item.catalog%></a>
+				</span>
+		</div>
+	 </li>
+	</div>
+	<%#  });%>
+</script>
+
+
+{{end}}
+
+
+<!-- 弹出层控件 -->
+{{define "hidDalog"}}
+<div id="hidTag"  style="display: none;">
+	<div id="Tagdialog">
+		<div class="layui-row">
+			{{range $index,$elem :=.Tags}}
+				<div class="layui-col-md3" style="padding: 10px;">
+					<a href="/detailTag?tag={{$elem.Name}}"  class="layui-btn layui-btn-primary layui-btn-radius">{{$elem.Name}}</a>	
+				</div>
+
+			{{end}}
+		</div>
+	</div>
+</div>
+
+<div id="hidcatalog"  style="display: none;">
+	<div id="catalogdialog">
+		<div class="layui-row">
+			{{range $index,$elem :=.Categories}}
+				<div class="layui-col-md3" style="padding: 10px;">
+					<a class="layui-btn layui-btn-primary layui-btn-radius" href="detailCategory?category={{$index}}" >{{$index}} {{$elem}}</a>		
+				</div>
+			{{end}}
+		</div>
+	</div>
+</div>
+
+
+
+
+{{end}}

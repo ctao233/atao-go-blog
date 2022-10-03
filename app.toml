@@ -1,0 +1,10 @@
+[appConfig]
+    address = "0.0.0.0:8080"
+[mysqlConfig]
+    ipPort = "localhost:3306" 
+    userPassword = "root:ataonihao.com"  
+    database = "ataoblog"
+[redisconfig]
+    addr = "120.79.203.17:6379"     
+	password ="ataonihao.com"
+	dB   = 0

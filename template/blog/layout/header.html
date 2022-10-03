@@ -1,0 +1,76 @@
+{{define "header"}}
+<div class="layui-header header header-index">
+	<div class="layui-container">
+		<a class="logo" href="/AtaoBlog"  style="text-shadow: 0.1rem 0.1rem 0.2rem rgb(0 0 0 / 15%); font-weight: bold; font-size: 20px; color: #d7d8de;">
+		 <p >阿滔のblog</p>
+		</a>
+	  <div class="layui-form layui-hide-xs component" lay-filter="LAY-site-header-component">
+		  <i class="layui-icon layui-icon-search"></i>
+		  <button class="layui-input" onclick="showSearchItem()">搜索文章</button>
+	  </div>
+	  <div class="layui-hide-xs site-notice"></div>
+	  
+	  <ul class="layui-nav" id="LAY_NAV_TOP">
+		<li class="layui-nav-item" data-dir="docs">
+		  <a href="/AtaoBlog">首页</a> 
+		</li>
+		<li class="layui-nav-item" data-dir="demo">
+		  <a href="/archives">时间轴</a>
+		</li>  
+		<li class="layui-nav-item layui-hide-xs">
+		  <a href="/404" target="_blank" rel="nofollow">友链</a>
+		</li>
+		<li class="layui-nav-item">
+		  <a href="javascript:;">
+			<!--<span class="layui-badge-dot" style="left:0; right: auto; margin: -4px 0 0 5px;"></span>--> 
+			关于
+		  </a>
+		  <dl class="layui-nav-child layui-nav-child-c">  
+			<dd lay-unselect><a href="/404"  lay-unselect>个人主页</a></dd>
+			<dd lay-unselect><a href="/404">问题反馈</a></dd>
+		  </dl>
+		</li>
+		
+	  </ul>
+	</div>
+  </div>
+
+  <div id="searchDialog" style="display: none;">
+	<div class="layui-row">
+		<input type="text" name="searchText"   placeholder="请输入检索内容" autocomplete="off" class="layui-input" oninput="searchBlog(this)">
+		
+	</div>
+	<hr class="layui-border-red">
+	<div id="searchItem" class="layui-row searchItem">
+		
+	</div>
+</div>
+
+<!-- 搜索控件 -->
+<div id="searchDialog" style="display: none;">
+	<div class="layui-row">
+		<input type="text" name="searchText"   placeholder="请输入检索内容" autocomplete="off" class="layui-input" oninput="searchBlog(this)">
+		
+	</div>
+	<hr class="layui-border-red">
+	<div id="searchItem" class="layui-row searchItem">
+		
+	</div>
+</div>
+
+<script id ="searchItemPanel" type="text/html">
+	<%# layui.each(d.Data, function(index, item){  %>
+	<div class="layui-card" style="margin-bottom: 20px;">
+		<a href="javascript:toblog(<%item.Id%>)">
+		  <div class="layui-card-header"  style="font-size: 20px;">
+			  <i class="layui-icon layui-icon-search" style="color: #f5dde3;"></i><%item.Title%></div>
+		  <div class="layui-card-body" style="font-size: 15px;">
+			<%item.Content%>
+		  </div>
+		</a>
+	</div>
+	<%#  }); %>
+</script>
+
+
+{{end}}
