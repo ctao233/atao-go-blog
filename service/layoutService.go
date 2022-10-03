@@ -16,7 +16,10 @@ func Layout() *vo.LayoutRes {
 	site := dao.GetSite()
 	infor, _ := dao.GetInformation()
 	footer, _ := dao.GetFootInfo()
-	hotArticles := dao.GetHotArticle()
+
+	//  右侧扩展数据
+	var Right vo.Right
+	Right.HotArticles = dao.GetHotArticle()
 
 	m, err := dao.GetCategoryBlogCount()
 	if err != nil {
@@ -40,7 +43,7 @@ func Layout() *vo.LayoutRes {
 		Blogs:  blogs,
 		Tags:   tags,
 		Foot:   footer,
-		Data:   hotArticles,
+		Right:  Right,
 	}
 	return result
 }

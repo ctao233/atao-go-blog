@@ -24,6 +24,7 @@ type LayoutRes struct {
 	Tags       []entity.Tag
 	Foot       entity.Footer
 	Data       interface{}
+	Right      Right
 }
 
 // 分页数据Api
@@ -68,4 +69,9 @@ type HotArticle struct {
 	Title      string
 	Photo      string
 	CreateDate time.Time
+}
+
+type Right struct {
+	// 热门文章
+	HotArticles []HotArticle
 }
