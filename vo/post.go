@@ -20,7 +20,7 @@ type LayoutRes struct {
 	PagePhoto  string // 页面图片
 	Site       entity.Site
 	Categories map[string]int // 分类
-	Tags       []entity.Tag   // 标签
+	Tags       []string       // 标签
 	Foot       entity.Footer  // 页脚
 	Data       interface{}
 	Right      Right // 右侧数据
