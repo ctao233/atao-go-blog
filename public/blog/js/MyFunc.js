@@ -85,7 +85,6 @@ function showSearchItem(){
                         searchText: $(obj).val()
                         }
                     }).then(res => {
-                        console.log(res)
                         if (res.data !='' && res.data.Data.length >0)
                         {
                             layui.laytpl(getTpl).render(res.data, function(html){

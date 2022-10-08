@@ -197,12 +197,11 @@ func UpdateBlogViewbyId(fields, ids string) (int, error) {
 // 搜索文章根据文字
 func GetBlogBytext(text string) ([]vo.SearchBlogVo, error) {
 
-	fmt.Println(len(text))
 	s := strings.TrimSpace(text)
 	if len(s) > 0 {
 		text = text + "*"
 	}
-	sql := "SELECT id,title ,content FROM blog WHERE MATCH(title,content) AGAINST( '" + text + "' IN BOOLEAN MODE)"
+	sql := "SELECT id,title ,content FROM blog WHERE MATCH(title,content) AGAINST( \"" + text + "\" IN BOOLEAN MODE) AND del_flag=0"
 	rows, err := utils.DBConn.Query(sql)
 
 	if err != nil {
