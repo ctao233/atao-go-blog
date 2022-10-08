@@ -231,7 +231,7 @@ func GetBlogBytext(text string) ([]vo.SearchBlogVo, error) {
 
 func GetHotArticle() []vo.HotArticle {
 	// SELECT id , title ,uploadTime FROM blog ORDER BY VIEW  DESC LIMIT 0,3
-	rows, err := utils.DBConn.Query("SELECT id , title , photo,uploadTime FROM blog ORDER BY VIEW  DESC LIMIT 0,3")
+	rows, err := utils.DBConn.Query("SELECT id , title , photo,uploadTime FROM blog where del_flag = 0 ORDER BY VIEW  DESC LIMIT 0,3")
 
 	if err != nil {
 		panic(err)
