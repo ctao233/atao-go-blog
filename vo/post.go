@@ -15,16 +15,15 @@ type LayoutRes struct {
 	TagCount      int // 标签数量
 	CategoryCount int // 分类数量
 
-	Github string
-	Email  string
-
+	Github     string
+	Email      string
+	PagePhoto  string // 页面图片
 	Site       entity.Site
-	Blogs      []entity.Blog
-	Categories map[string]int
-	Tags       []entity.Tag
-	Foot       entity.Footer
+	Categories map[string]int // 分类
+	Tags       []entity.Tag   // 标签
+	Foot       entity.Footer  // 页脚
 	Data       interface{}
-	Right      Right
+	Right      Right // 右侧数据
 }
 
 // 分页数据Api

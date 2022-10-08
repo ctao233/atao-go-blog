@@ -8,7 +8,6 @@ import (
 
 func Layout() *vo.LayoutRes {
 
-	blogs, _ := dao.GetAllBlog(0, 3)
 	blogCout := dao.GetBlogCount()
 	tags, _ := dao.GetAllTag()
 	tagCount := dao.GetTagCount()
@@ -40,7 +39,6 @@ func Layout() *vo.LayoutRes {
 		Github: infor.Github,
 		Email:  infor.Email,
 		Site:   site,
-		Blogs:  blogs,
 		Tags:   tags,
 		Foot:   footer,
 		Right:  Right,

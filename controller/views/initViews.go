@@ -19,12 +19,14 @@ func (*HTMLApi) Index(w http.ResponseWriter, r *http.Request) {
 
 	// 写入数据
 	result := service.Layout()
+	result.PagePhoto = dao.GetPagePhoto("indexPhoto")
 	common.RenderHtml(w, "index", result)
 }
 
 // 时间轴
 func (*HTMLApi) ArchivesIndex(w http.ResponseWriter, r *http.Request) {
 	result := service.Layout()
+	result.PagePhoto = dao.GetPagePhoto("archivesPhoto")
 	common.RenderHtml(w, "archives", result)
 }
 
@@ -50,6 +52,7 @@ func (*HTMLApi) NOtFound(w http.ResponseWriter, r *http.Request) {
 // 分类详情
 func (*HTMLApi) DetailCategory(w http.ResponseWriter, r *http.Request) {
 	result := service.Layout()
+	result.PagePhoto = dao.GetPagePhoto("categoryPhoto")
 	searchField := r.FormValue("category")
 
 	categoryCount := dao.GetBlogByCategoryCount(searchField)
@@ -61,6 +64,7 @@ func (*HTMLApi) DetailCategory(w http.ResponseWriter, r *http.Request) {
 // 标签详情
 func (*HTMLApi) DetailTag(w http.ResponseWriter, r *http.Request) {
 	result := service.Layout()
+	result.PagePhoto = dao.GetPagePhoto("tagPhoto")
 	searchField := r.FormValue("tag")
 
 	tagCount := dao.GetBlogByTagsCount(searchField)
@@ -72,7 +76,6 @@ func (*HTMLApi) DetailTag(w http.ResponseWriter, r *http.Request) {
 // 博客观览页面
 func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 	str := r.FormValue("id")
-
 	s := r.RemoteAddr
 	fmt.Println(s)
 
@@ -85,6 +88,7 @@ func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 		id, err := strconv.Atoi(str)
 		common.Check(err)
 		lr := service.GetBlogByIdService(id)
+		lr.PagePhoto = dao.GetPagePhoto("blogPhoto")
 		common.RenderHtml(w, "blog", lr)
 	}
 

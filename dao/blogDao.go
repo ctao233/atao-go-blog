@@ -46,7 +46,7 @@ func GetBlogByCategoryCount(catelog string) int {
 	return count
 }
 
-// 查询博客所有内容
+// // 查询博客所有内容
 func GetAllBlog(page, pageSize int) ([]entity.Blog, error) {
 
 	rows, err := utils.DBConn.Query("SELECT"+searchFeild+"FROM blog where  del_flag=0  ORDER BY uploadTime DESC  LIMIT ?, ?", page, pageSize)
@@ -70,8 +70,8 @@ func GetAllBlog(page, pageSize int) ([]entity.Blog, error) {
 	return blogs, nil
 }
 
-// 根据标签查询
-// 查询博客所有内容
+//
+// 分页查询 -查询博客所有内容-条件查询
 func GetAllBlogByTag(page, pageSize int, condition string) ([]entity.Blog, error) {
 	rows, err := utils.DBConn.Query("SELECT"+searchFeild+"FROM blog WHERE del_flag= 0 and tags LIKE ? ORDER BY uploadTime DESC  LIMIT ?,?", "%"+condition+"%", page, pageSize)
 	if err != nil {

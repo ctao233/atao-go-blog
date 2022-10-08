@@ -4,6 +4,7 @@ import (
 	"atao-go-blog/common"
 	"atao-go-blog/config"
 	"atao-go-blog/router"
+	"atao-go-blog/task"
 	"log"
 	"net/http"
 )
@@ -13,7 +14,7 @@ func init() {
 	// 初始化模板
 	common.LoadTemplate()
 	// 加载 定时任务
-	// task.StartTimer(task.SyncRdbtoMysql)
+	task.StartTimer(task.SyncRdbtoMysql)
 }
 func main() {
 	server := http.Server{
