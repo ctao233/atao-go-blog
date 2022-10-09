@@ -6,5 +6,5 @@
     database = "ataoblog"
 [redisconfig]
     addr = "localhost:6379"     
-	password ="ataonihao.com"
+	password ="***********"
 	dB   = 0
