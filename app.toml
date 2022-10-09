@@ -2,9 +2,9 @@
     address = "0.0.0.0:8080"
 [mysqlConfig]
     ipPort = "localhost:3306" 
-    userPassword = "root:ataonihao.com"  
+    userPassword = "root:**********"  
     database = "ataoblog"
 [redisconfig]
-    addr = "120.79.203.17:6379"     
-	password ="ataonihao.com"
+    addr = "localhost:6379"     
+	password ="***********"
 	dB   = 0
