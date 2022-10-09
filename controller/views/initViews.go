@@ -8,7 +8,6 @@ import (
 	"atao-go-blog/utils"
 	"atao-go-blog/vo"
 	"context"
-	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -77,11 +76,6 @@ func (*HTMLApi) DetailTag(w http.ResponseWriter, r *http.Request) {
 func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 	str := r.FormValue("id")
 	s := r.RemoteAddr
-	fmt.Println(s)
-
-	if err := utils.RDB.PFAdd(context.Background(), define.BlogViewKey+str, strings.Split(s, ":")[0]).Err(); err != nil {
-		panic(err)
-	}
 
 	if str != "" {
 
@@ -90,6 +84,9 @@ func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 		lr := service.GetBlogByIdService(id)
 		lr.PagePhoto = dao.GetPagePhoto("blogPhoto")
 		common.RenderHtml(w, "blog", lr)
+		if err := utils.RDB.PFAdd(context.Background(), define.BlogViewKey+str, strings.Split(s, ":")[0]).Err(); err != nil {
+			panic(err)
+		}
 	}
 
 }
