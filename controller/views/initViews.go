@@ -8,9 +8,11 @@ import (
 	"atao-go-blog/utils"
 	"atao-go-blog/vo"
 	"context"
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // 首页映射处理函数
@@ -45,7 +47,7 @@ func (*HTMLApi) ArchivesIndex(w http.ResponseWriter, r *http.Request) {
 // }
 
 func (*HTMLApi) NOtFound(w http.ResponseWriter, r *http.Request) {
-	common.RenderHtml(w, "404", nil)
+	common.RenderHtml(w, "404", vo.NotFound{Msg: "该功能还在开发中......"})
 }
 
 // 分类详情
@@ -76,8 +78,9 @@ func (*HTMLApi) DetailTag(w http.ResponseWriter, r *http.Request) {
 func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 	str := r.FormValue("id")
 	s := r.RemoteAddr
-
-	if str != "" {
+	_, err := strconv.ParseFloat(str, 64)
+	fmt.Println(common.DateDay(time.Now()) + ":" + s)
+	if str != "" && err == nil {
 
 		id, err := strconv.Atoi(str)
 		common.Check(err)
@@ -88,6 +91,8 @@ func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 		if err := utils.RDB.PFAdd(context.Background(), define.BlogViewKey+str, strings.Split(s, ":")[0]).Err(); err != nil {
 			panic(err)
 		}
+	} else {
+		common.RenderHtml(w, "404", vo.NotFound{Msg: "请求路径有误"})
 	}
 
 }

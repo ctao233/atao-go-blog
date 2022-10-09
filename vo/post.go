@@ -74,3 +74,8 @@ type Right struct {
 	// 热门文章
 	HotArticles []HotArticle
 }
+
+// 404 信息
+type NotFound struct {
+	Msg string
+}

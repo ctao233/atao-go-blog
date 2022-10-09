@@ -29,9 +29,9 @@ var ctx = context.Background()
 func main() {
 	var ctx = context.Background()
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "120.79.203.17:6379",
-		Password: "ataonihao.com", // no password set
-		DB:       0,               // use default DB
+		Addr:     "**********",
+		Password: "**********", // no password set
+		DB:       0,            // use default DB
 	})
 
 	s, err := rdb.Keys(ctx, "blog:view:*").Result()
