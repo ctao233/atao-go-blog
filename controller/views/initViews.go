@@ -84,6 +84,7 @@ func (*HTMLApi) Blog(w http.ResponseWriter, r *http.Request) {
 		lr := service.GetBlogByIdService(id)
 		lr.PagePhoto = dao.GetPagePhoto("blogPhoto")
 		common.RenderHtml(w, "blog", lr)
+
 		if err := utils.RDB.PFAdd(context.Background(), define.BlogViewKey+str, strings.Split(s, ":")[0]).Err(); err != nil {
 			panic(err)
 		}
